@@ -37,11 +37,16 @@ const onChange = evt => {
       number: evt.target.elements.number.value, 
     }
 
-    if (contacts.some(({ name: nName }) => nName === name)) {
+    if (contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase())) {
       alert(`${name} is already in contacts!`);
+      return;
+    } else if (contacts.find(contact => contact.number === number)) {
+      alert(`${number} is already in contacts!`);
+      return; 
     } else if (checkQuery(name, number)) {
       alert(" Enter the contact's name and number phone!");
     }
+
     dispatch(addContactThunk(newContact));
      
     evt.target.reset();
@@ -86,5 +91,5 @@ const onChange = evt => {
           >Add contact</button>
     </form>
   </div>
-            );
+  );
 }

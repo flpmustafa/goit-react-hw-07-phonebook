@@ -6,7 +6,6 @@ const api = axios.create({
 
 export const getContacts = async () => {
   const { data } = await api.get();
-    console.log(data);
     return data;
      
 };

@@ -10,8 +10,8 @@ export function ContactList() {
     <div className={css.contact__list}>
       <h2>Contacts</h2>
     <ul className={css.contact__roster}>
-      {contacts.map(({ id, name, phone }) => (
-        <ContactListItem key={id} id={id} name={name} number={phone} />
+      {contacts.map(({ id, name, number }) => (
+        <ContactListItem key={id} id={id} name={name} number={number} />
       ))}
       </ul>
       </div>
